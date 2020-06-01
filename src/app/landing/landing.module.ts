@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { LandingRoutingModule } from './landing-routing.module';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: 
-  }
-];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    LandingRoutingModule
   ]
 })
 export class LandingModule { }
