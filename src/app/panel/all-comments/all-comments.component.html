@@ -1,0 +1,19 @@
+<div *ngIf="comments.length == 0">
+  <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+</div>
+
+<div *ngIf="comments.length > 0">
+  <div class="card w-75 mw-100 border-top-0 border-right-0 border-left-0 m-auto px-3" *ngFor="let item of comments; index as i">
+    <div class="card-body" routerLink="/panel/comments/control/{{item.id}}" data-toggle="tooltip" data-placement="top" title="click to edit">
+      <button type="button" class="close" aria-label="Close" (click)="delete(i)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h6 class="card-title">{{item.email}}</h6>
+      <p><strong>{{item.name}}</strong></p>
+      <p class="card-text"> {{item.body}} </p>
+    </div>
+  </div>
+</div>

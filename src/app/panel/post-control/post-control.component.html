@@ -1,1 +1,43 @@
-<p>post-control works!</p>
+<div *ngIf="!post">
+  <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+</div>
+
+<div *ngIf="post">
+  <div class="card w-50 m-auto" *ngIf="post.user">
+    <div class="card-body">
+      <h4 class="card-title">{{post.user.name}}</h4>
+      <h5 class="card-title">{{post.title}}</h5>
+      <div class="form-group">
+        <textarea class="form-control" name="body" rows="3" [(ngModel)]="post.body" #body='ngModel'></textarea>
+      </div>
+      <div class="card w-100 mw-100 border-top-0 border-right-0 border-left-0 m-auto px-3" style="background-color: #12312312;" *ngFor="let item of comments">
+        <div class="card-body" routerLink="/panel/comments/control/{{item.id}}" data-toggle="tooltip" data-placement="top" title="click to edit">
+          <h6 class="card-title">{{item.email}}</h6>
+          <p><strong>{{item.name}}</strong></p>
+          <p class="card-text"> {{item.body}} </p>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+
+
+  
+
+
+
+
+  <!-- <div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Button</a>
+    </div>
+  </div> -->
+
+
+</div>

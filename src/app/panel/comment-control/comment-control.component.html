@@ -1,0 +1,22 @@
+<div *ngIf="!comment">
+  <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+</div>
+
+<div *ngIf="comment">
+  <div class="card w-50 m-auto" >
+    <div class="card-body">
+      <h4 class="card-title">{{comment.email}}</h4>
+      <h5 class="card-title">{{comment.name}}</h5>
+      <div class="form-group">
+        <textarea class="form-control" name="body" rows="3" [(ngModel)]="comment.body" #body='ngModel'></textarea>
+      </div>
+      <button type="button" class="btn btn-secondary" routerLink="/panel/posts/control/{{comment.postId}}">Original Post</button>
+    </div>
+
+
+  </div>
+
+</div>

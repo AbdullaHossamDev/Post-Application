@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as userServ from './services/users/index.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'post-application';
+
+  constructor(
+    private userSer: userServ.IndexService
+  ){
+    this.userSer.getAllUsers()
+  }
 }
