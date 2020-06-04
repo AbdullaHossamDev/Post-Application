@@ -6,9 +6,49 @@
 
 
 <div *ngIf="post">
-  <div >
-    <div class="card mb-2" >
-      <div class="card-body" >
+  <div class="card w-100 m-auto" *ngIf="post.user">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="card-title text-primary">{{post.user.name}}</h4>
+        </div>
+        <div class="col-md-3 offset-1 ">
+          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="updatePost()"
+            *ngIf="postId != -1">Update</button>
+          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="addPost()"
+            *ngIf="postId == -1">Add</button>
+        </div>
+      </div>
+      <input type="text" class="form-control" name="title" placeholder="Title" rows="2" [(ngModel)]="post.title"
+        #title='ngModel'>
+      <div class="form-group mt-2">
+        <textarea class="form-control" name="body" rows="3" [(ngModel)]="post.body" placeholder="What's in your mind?" #body='ngModel'></textarea>
+      </div>
+      <!-- <div class="containter w-100 mw-100 border-top-0 border-right-0 border-left-0 mt-1 px-3 commentColor p-3" *ngFor="let item of comments">
+        <div class="" routerLink="/panel/comments/control/{{item.id}}" data-toggle="tooltip" data-placement="top" title="click to edit">
+          <h6 class="card-title text-primary mb-1">{{item.email}}</h6>
+          <p class="text-black-50 mb-1">{{item.name}}</p>
+          <p class="card-text"> {{item.body}} </p>
+        </div>
+      </div> -->
+      <div *ngFor="let comment of comments; index as i">
+        <button type="button" class="close" aria-label="Close" (click)="delete(i)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="ml-3 mb-2 pt-1 pb-1">
+          <p class="card-title text-primary font-weight-bold mb-1 pl-5">{{comment.email}}</p>
+          <div class="w-100 commentColor rounded-pill pl-5 pr-5 pb-2 pt-2">
+            <p class="text-black-50 mb-1">{{comment.name}}</p>
+            <p class="card-text"> {{comment.body}} </p>
+          </div>
+        </div>
+      </div>
+      <button class="btn w-50 btn-block btn-primary text-uppercase mt5-1 m-auto" [routerLink]="['/panel/comments/control/-1',{'postId': postId }]" routerLinkActive="router-link-active" *ngIf="postId != -1">Add comment</button>
+    </div>
+  </div>
+  <!-- <div>
+    <div class="card mb-2">
+      <div class="card-body">
         <div class="border-bottom pb-4">
           <h5 class="card-title text-primary">{{post.user.name}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{post.title}}</h6>
@@ -31,37 +71,6 @@
         </div>
       </div>
     </div>
-  <!-- <div class="card w-100 m-auto" *ngIf="post.user">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-8">
-          <h4 class="card-title text-primary">{{post.user.name}}</h4>
-        </div>
-        <div class="col-md-3 offset-1 ">
-          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="updatePost()"
-            *ngIf="postId != -1">Update</button>
-          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="addPost()"
-            *ngIf="postId == -1">Add</button>
-        </div>
-      </div>
-      <input type="text" class="form-control" name="title" placeholder="Title" rows="2" [(ngModel)]="post.title"
-        #title='ngModel'>
-      <div class="form-group mt-2">
-        <textarea class="form-control" name="body" rows="3" [(ngModel)]="post.body" placeholder="What's in your mind?"
-          #body='ngModel'></textarea>
-      </div>
-      <div class="containter w-100 mw-100 border-top-0 border-right-0 border-left-0 mt-1 px-3 commentColor p-3"
-        *ngFor="let item of comments">
-        <div class="" routerLink="/panel/comments/control/{{item.id}}" data-toggle="tooltip" data-placement="top"
-          title="click to edit">
-          <h6 class="card-title text-primary mb-1">{{item.email}}</h6>
-          <p class="text-black-50 mb-1">{{item.name}}</p>
-          <p class="card-text"> {{item.body}} </p>
-        </div>
-      </div>
-      <button class="btn w-50 btn-block btn-primary text-uppercase mt5-1 m-auto"
-        [routerLink]="['/panel/comments/control/-1',{'postId': postId }]" routerLinkActive="router-link-active"
-        *ngIf="postId != -1">Add comment</button>
-    </div>
+
   </div> -->
 </div>

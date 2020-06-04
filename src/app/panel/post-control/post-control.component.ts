@@ -30,6 +30,7 @@ export class PostControlComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: any) => {
       this.postId = Number(params.id);
       if (this.postId == -1) {
+        this.comments = [];
         let user =  this.saved_data.lastLoggedUser()
         this.post = {
           title: '',
