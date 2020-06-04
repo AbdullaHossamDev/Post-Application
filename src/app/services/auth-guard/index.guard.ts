@@ -19,6 +19,7 @@ export class IndexGuard implements CanActivate, CanActivateChild {
       return true;
     }
     else{
+      this.router.navigate(['/'])
       return false;
     }
   }
@@ -27,6 +28,7 @@ export class IndexGuard implements CanActivate, CanActivateChild {
     let user = this.saved_data.lastLoggedUser();
 
     if(user){
+      this.router.navigate(['/'])
       return false;
     }
     else{

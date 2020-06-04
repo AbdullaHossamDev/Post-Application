@@ -34,22 +34,29 @@ export class IndexService {
 
   addComment(commentData: any) {
     return this.http.post(`${this.baseURL}/comments`, JSON.stringify(commentData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
-      .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError)).subscribe((data:any) => {
+        window.alert('Your comment added successfully');
+      })
   }
 
   putComment(commentData: any) {
-    return this.http.put(`${this.baseURL}/comments`, JSON.stringify(commentData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
-      .pipe(catchError(this.handleError));
+    return this.http.put(`${this.baseURL}/comments/${commentData.id}`, JSON.stringify(commentData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
+      .pipe(catchError(this.handleError)).subscribe((data:any) => {
+        window.alert('Your comment updated successfully');
+      })
   }
 
   patchComment(commentData: any) {
-    return this.http.patch(`${this.baseURL}/comments`, JSON.stringify(commentData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
-      .pipe(catchError(this.handleError));
+    return this.http.patch(`${this.baseURL}/comments/${commentData.id}`, JSON.stringify(commentData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
+      .pipe(catchError(this.handleError)).subscribe((data:any) => {
+        window.alert('Your comment updated successfully');
+      })
   }
 
   deleteComment(id: Number) {
-    this.http.delete(`${this.baseURL}/comments/${id}`);
-
+    this.http.delete(`${this.baseURL}/comments/${id}`).subscribe((data:any) => {
+      window.alert('Your comment deleted successfully');
+    })
   }
 
   handleError(error) {

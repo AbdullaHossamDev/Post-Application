@@ -5,8 +5,8 @@
 </div>
 
 
-<div *ngIf="post">
-  <div class="card w-100 m-auto" *ngIf="post.user">
+<div *ngIf="post" class="base_page_color">
+  <div class="card w-75 m-auto " *ngIf="post.user">
     <div class="card-body">
       <div class="row">
         <div class="col-md-8">
@@ -35,7 +35,7 @@
         <button type="button" class="close" aria-label="Close" (click)="delete(i)">
           <span aria-hidden="true">&times;</span>
         </button>
-        <div class="ml-3 mb-2 pt-1 pb-1">
+        <div class="ml-3 mb-2 pt-1 pb-1" routerLink="/panel/comments/control/{{comment.id}}" data-toggle="tooltip" data-placement="top" title="click to edit">
           <p class="card-title text-primary font-weight-bold mb-1 pl-5">{{comment.email}}</p>
           <div class="w-100 commentColor rounded-pill pl-5 pr-5 pb-2 pt-2">
             <p class="text-black-50 mb-1">{{comment.name}}</p>

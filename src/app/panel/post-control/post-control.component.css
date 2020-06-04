@@ -11,3 +11,9 @@
   background-color:#f2f3f5;
  /* #12312312; */
 }
+
+.base_page_color{
+  background-color: #e9ebee;
+  min-height: 92vh!important;
+
+}

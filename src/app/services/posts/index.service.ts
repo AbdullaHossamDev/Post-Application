@@ -33,21 +33,29 @@ export class IndexService {
 
   addPost(postData: any) {
     return this.http.post(`${this.baseURL}/posts`, JSON.stringify(postData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
-      .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError)).subscribe((data:any) => {
+        window.alert('Your post added successfully');
+      })
   }
 
   putPost(postData: any) {
-    return this.http.put(`${this.baseURL}/posts`, JSON.stringify(postData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
-      .pipe(catchError(this.handleError));
+    return this.http.put(`${this.baseURL}/posts/${postData.id}`, JSON.stringify(postData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
+      .pipe(catchError(this.handleError)).subscribe((data:any) => {
+        window.alert('Your post updated successfully');
+      })
   }
 
   patchPost(postData: any) {
-    return this.http.patch(`${this.baseURL}/posts`, JSON.stringify(postData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
-      .pipe(catchError(this.handleError));
+    return this.http.patch(`${this.baseURL}/posts/${postData.id}`, JSON.stringify(postData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
+      .pipe(catchError(this.handleError)).subscribe((data:any) => {
+        window.alert('Your post updated successfully');
+      })
   }
 
   deletePost(id: Number) {
-    this.http.delete(`${this.baseURL}/posts/${id}`);
+    this.http.delete(`${this.baseURL}/posts/${id}`).subscribe((data:any) => {
+      window.alert('Your post deleted successfully');
+    })
   }
 
   handleError(error) {

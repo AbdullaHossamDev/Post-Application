@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as postServ from '../../services/posts/index.service';
 import * as userServ from '../../services/users/index.service';
 import * as commentServ from '../../services/comments/index.service'
@@ -21,8 +21,8 @@ export class PostControlComponent implements OnInit {
     private postServ: postServ.IndexService,
     private userServ: userServ.IndexService,
     private commentServ: commentServ.IndexService,
-    private saved_data: saved_data.IndexService
-
+    private saved_data: saved_data.IndexService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -59,6 +59,7 @@ export class PostControlComponent implements OnInit {
     // should add this user id on the post 
     delete this.post.user;
     this.postServ.addPost(this.post);
+    this.router.navigate(['panel'])
   }
 
   delete(ind){

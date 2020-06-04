@@ -6,3 +6,11 @@
   right: 50%;
   bottom: 50%;
 }
+
+.base_page_color{
+  background-color: #e9ebee;
+}
+
+.add_m{
+  margin-bottom: 1%!important;
+}

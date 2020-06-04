@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as commentServ from '../../services/comments/index.service'
 import * as saved_data from '../../services/saved-data/index.service'
 
@@ -15,7 +15,8 @@ export class CommentControlComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private commentServ: commentServ.IndexService,
-    private saved_data: saved_data.IndexService
+    private saved_data: saved_data.IndexService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,10 +31,11 @@ export class CommentControlComponent implements OnInit {
           body: '',
           postId
         }
+      }else{
+        this.commentServ.getCommentById(this.commentId).subscribe((data: any) => {
+          this.comment = data;
+        })
       }
-      this.commentServ.getCommentById(this.commentId).subscribe((data: any) => {
-        this.comment = data;
-      })
     })
   }
 
@@ -44,6 +46,7 @@ export class CommentControlComponent implements OnInit {
 
   addComment(){
     this.commentServ.addComment(this.comment);
+    this.router.navigate([`/panel/posts/control/${this.comment.postId}`])
   }
 
 }

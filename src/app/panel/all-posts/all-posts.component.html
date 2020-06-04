@@ -12,8 +12,8 @@
   </div>
 </div>
 
-<div *ngIf="posts.length > 0">
-  <div class="card w-100 border-top-0 border-right-0 border-left-0 m-auto px-4" *ngFor="let item of posts; index as i">
+<div *ngIf="posts.length > 0" class="base_page_color">
+  <div class="card w-75 border-top-0 border-right-0 border-left-0 m-auto px-4 pb-3 add_m" *ngFor="let item of posts; index as i">
     <div class="card-body" data-toggle="tooltip" data-placement="top" title="click to see comments">
       <button type="button" class="close" aria-label="Close" (click)="delete(i)" data-toggle="tooltip" data-placement="top" title="Delete">
         <span aria-hidden="true">&times;</span>
