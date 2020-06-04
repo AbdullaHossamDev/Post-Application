@@ -1,3 +1,99 @@
-<p>ana nav bar</p>
+<!-- <p style="position:sticky; min-width: 100%; background-color: aqua; height: 48px;">ana nav bar</p> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="/" routerLinkActive="router-link-active">Override</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<router-outlet></router-outlet>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/panel" *ngIf="Logged" routerLinkActive="router-link-active">Dashboard</a>
+      </li>
+    </ul>
+    <button class="btn btn-dark my-2 my-sm-0" routerLink="/auth" *ngIf="!Logged">Login</button>
+    <button class="btn btn-dark my-2 my-sm-0" routerLink="/" *ngIf="Logged" (click)="logout()">Logout</button>
+  </div>
+</nav>
+<div >
+  <router-outlet></router-outlet>
+</div>
+<!-- <div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+<div class="alert alert-secondary" role="alert">
+  A simple secondary alert—check it out!
+</div>
+<div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+  A simple warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+  A simple info alert—check it out!
+</div>
+<div class="alert alert-light" role="alert">
+  A simple light alert—check it out!
+</div>
+<div class="alert alert-dark" role="alert">
+  A simple dark alert—check it out!
+</div>
+
+
+
+<p>##############################################################</p>
+<div class="alert alert-primary" role="alert">
+  A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-secondary" role="alert">
+  A simple secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-success" role="alert">
+  A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-danger" role="alert">
+  A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-warning" role="alert">
+  A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-info" role="alert">
+  A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-light" role="alert">
+  A simple light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-dark" role="alert">
+  A simple dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<p>##############################################################</p>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+
+<p>##############################################################</p>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<p>##############################################################</p>
+<h1>Example heading <span class="badge badge-secondary">New</span></h1>
+<h2>Example heading <span class="badge badge-secondary">New</span></h2>
+<h3>Example heading <span class="badge badge-secondary">New</span></h3>
+<h4>Example heading <span class="badge badge-secondary">New</span></h4>
+<h5>Example heading <span class="badge badge-secondary">New</span></h5>
+<h6>Example heading <span class="badge badge-secondary">New</span></h6> -->

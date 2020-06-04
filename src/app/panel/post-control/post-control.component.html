@@ -1,32 +1,44 @@
-<div *ngIf="!post">
-  <button class="btn btn-primary" type="button" disabled>
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...
-  </button>
+<div class="loading" *ngIf="!post">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
 
+
 <div *ngIf="post">
-  <div class="card w-50 m-auto" *ngIf="post.user">
+  <div class="card w-100 m-auto" *ngIf="post.user">
     <div class="card-body">
-      <h4 class="card-title">{{post.user.name}}</h4>
-      <h5 class="card-title">{{post.title}}</h5>
-      <div class="form-group">
-        <textarea class="form-control" name="body" rows="3" [(ngModel)]="post.body" #body='ngModel'></textarea>
-      </div>
-      <div class="card w-100 mw-100 border-top-0 border-right-0 border-left-0 m-auto px-3" style="background-color: #12312312;" *ngFor="let item of comments">
-        <div class="card-body" routerLink="/panel/comments/control/{{item.id}}" data-toggle="tooltip" data-placement="top" title="click to edit">
-          <h6 class="card-title">{{item.email}}</h6>
-          <p><strong>{{item.name}}</strong></p>
-          <p class="card-text"> {{item.body}} </p>
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="card-title text-primary">{{post.user.name}}</h4>
+        </div>
+        <div class="col-md-3 offset-1 ">
+          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="updatePost()" *ngIf="postId != -1">Update</button>
+          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="addPost()" *ngIf="postId == -1">Add</button>
         </div>
       </div>
+      <input type="text" class="form-control" name="title" placeholder="Title" rows="2" [(ngModel)]="post.title" #title='ngModel'>
+      <div class="form-group mt-2">
+        <textarea class="form-control" name="body" rows="3" [(ngModel)]="post.body" placeholder="What's in your mind?" #body='ngModel'></textarea>
+      </div>
+      <div class="containter w-100 mw-100 border-top-0 border-right-0 border-left-0 mt-1 px-3 commentColor p-3"
+        *ngFor="let item of comments">
+        <div class="" routerLink="/panel/comments/control/{{item.id}}" data-toggle="tooltip" data-placement="top"
+          title="click to edit">
+          <h6 class="card-title text-primary mb-1">{{item.email}}</h6>
+          <p class="text-black-50 mb-1">{{item.name}}</p>
+          <p class="card-text"> {{item.body}} </p>
+
+        </div>
+      </div>
+      <button class="btn w-50 btn-block btn-primary text-uppercase mt5-1 m-auto" [routerLink]="['/panel/comments/control/-1',{'postId': postId }]" routerLinkActive="router-link-active" *ngIf="postId != -1" >Add comment</button>
     </div>
-    
+
 
   </div>
 
 
-  
+
 
 
 

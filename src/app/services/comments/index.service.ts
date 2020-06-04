@@ -42,7 +42,7 @@ export class IndexService {
       .pipe(catchError(this.handleError));
   }
 
-  patchPost(commentData: any) {
+  patchComment(commentData: any) {
     return this.http.patch(`${this.baseURL}/comments`, JSON.stringify(commentData), { headers: { "Content-type": "application/json; charset=UTF-8" } })
       .pipe(catchError(this.handleError));
   }

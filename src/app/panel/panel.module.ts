@@ -6,14 +6,17 @@ import { AllPostsComponent } from './all-posts/all-posts.component';
 import { FormsModule } from '@angular/forms';
 import { AllCommentsComponent } from './all-comments/all-comments.component';
 import { CommentControlComponent } from './comment-control/comment-control.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [PostControlComponent, AllPostsComponent, AllCommentsComponent, CommentControlComponent],
+  declarations: [PostControlComponent, AllPostsComponent, AllCommentsComponent, CommentControlComponent, DashboardComponent],
   imports: [
     CommonModule,
     PanelRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
 })
 export class PanelModule { }

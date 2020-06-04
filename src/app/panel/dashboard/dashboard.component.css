@@ -1,0 +1,22 @@
+.task_page{
+  /* padding: 1rem 1.5rem;
+  background-color: #293b52;
+  border-radius: 0;
+  position: sticky;
+  top:48px;
+  height: 47rem; */
+  top: 56px;
+  right: 0;
+  height: 683px;
+} 
+
+.page_links:hover{
+  /* background-color: #123444; */
+  color: #ccc;
+  
+}
+
+.page_links{
+  text-decoration: none;
+  color: white;
+}

@@ -1,17 +1,25 @@
-<div *ngIf="!comment">
-  <button class="btn btn-primary" type="button" disabled>
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...
-  </button>
+<div class="loading" *ngIf="!comment">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
 
+
 <div *ngIf="comment">
-  <div class="card w-50 m-auto" >
+  <div class="card w-100 m-auto" >
     <div class="card-body">
-      <h4 class="card-title">{{comment.email}}</h4>
-      <h5 class="card-title">{{comment.name}}</h5>
-      <div class="form-group">
-        <textarea class="form-control" name="body" rows="3" [(ngModel)]="comment.body" #body='ngModel'></textarea>
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="card-title text-primary">{{comment.email}}</h4>
+        </div>
+        <div class="col-md-3 offset-1 ">
+          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="updateComment()" *ngIf="commentId != -1">Update</button>
+          <button class="btn btn-lg btn-block btn-primary text-uppercase mb-1" (click)="addComment()" *ngIf="commentId == -1">Add</button>
+        </div>
+      </div>
+      <input type="text" class="form-control" name="name" placeholder="Name" rows="2" [(ngModel)]="comment.name" #name='ngModel'>
+      <div class="form-group mt-2">
+        <textarea class="form-control" name="body" rows="3" [(ngModel)]="comment.body" placeholder="Your comment!" #body='ngModel'></textarea>
       </div>
       <button type="button" class="btn btn-secondary" routerLink="/panel/posts/control/{{comment.postId}}">Original Post</button>
     </div>

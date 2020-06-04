@@ -23,4 +23,8 @@ export class IndexService {
       this.Users = data;
     })
   }
+
+  returnAllUsers(){
+    return this.Users;
+  }
 }

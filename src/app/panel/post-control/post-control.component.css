@@ -1,0 +1,12 @@
+.loading{
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+}
+
+.commentColor{
+  background-color: #12312312;
+}
