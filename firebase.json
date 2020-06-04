@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "post-application",
+      "public": "dist/post-application",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

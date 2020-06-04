@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "override-company-task-c847c": {
+      "hosting": {
+        "post-application": [
+          "override-company-task-c847c"
+        ]
+      }
+    }
+  }
+}
