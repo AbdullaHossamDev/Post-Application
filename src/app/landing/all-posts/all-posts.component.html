@@ -1,1 +1,39 @@
-<p>all-posts works!</p>
+<section class="base_page_color">
+  <div class="container w-50 ">
+    <div  *ngFor="let post of posts; index as postInd" >
+      <div class="card mb-2" *ngIf="postInd < displayPosts">
+        <div class="card-body" >
+          <div class="border-bottom pb-4">
+            <h5 class="card-title text-primary">{{post.user.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{post.title}}</h6>
+            <p class="card-text">{{post.body}}</p>
+          </div>
+          <div class="container pt-1">
+            <div *ngFor="let comment of post.comments; index as commentInd">
+              <div class="ml-3 mb-2 pt-1 pb-1" *ngIf="commentInd < post.display">
+                <p class="card-title text-primary font-weight-bold mb-1 pl-5">{{comment.email}}</p>
+                <div class="w-100 commentColor rounded-pill pl-5 pr-5 pb-2 pt-2">
+                  <p class="text-black-50 mb-1">{{comment.name}}</p>
+                  <p class="card-text"> {{comment.body}} </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-50 m-auto" (click)="increaseCommentDisplay(post)">
+              <button class="btn btn-block btn-outline-light text-muted mb-1"
+                *ngIf="post.display <= post.comments.length">See more</button>
+            </div>
+            <div class="w-50 m-auto" (click)="decreaseCommentDisplay(post)">
+              <button class="btn btn-block btn-outline-light text-muted mb-1"
+                *ngIf="post.display >= post.comments.length && post.comments.length != 0 ">See less</button>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-50 m-auto" (click)="increasePostDisplay()">
+      <button class="btn btn-block btn-outline-secondary mb-1"
+        *ngIf="displayPosts <= posts.length">See more</button>
+    </div>
+  </div>
+</section>

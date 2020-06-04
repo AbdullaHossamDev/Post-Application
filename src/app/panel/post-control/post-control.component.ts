@@ -59,4 +59,9 @@ export class PostControlComponent implements OnInit {
     delete this.post.user;
     this.postServ.addPost(this.post);
   }
+
+  delete(ind){
+    let deletedComment = this.comments.splice(ind, 1);
+    this.commentServ.deleteComment(deletedComment[0].id);
+  }
 }

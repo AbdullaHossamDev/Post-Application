@@ -18,8 +18,10 @@ export class AppComponent {
     private firebaseServ: firebaseServ.IndexService
   ) {
     this.userSer.getAllUsers();
+    this.Logged = this.saved_data.isLogged;
     this.eventListener = this.saved_data.isLoggedEvent()
       .subscribe((item) => {
+        console.log('in app component: ', item)
         this.Logged = item;
       });
   }
