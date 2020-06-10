@@ -5,3 +5,12 @@
 .commentColor{
   background-color: #f2f3f5;
 }
+
+.loading{
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+}
